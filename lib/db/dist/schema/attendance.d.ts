@@ -1,0 +1,145 @@
+import { z } from "zod/v4";
+export declare const attendanceTable: import("drizzle-orm/pg-core").PgTableWithColumns<{
+    name: "attendance";
+    schema: undefined;
+    columns: {
+        id: import("drizzle-orm/pg-core").PgColumn<{
+            name: "id";
+            tableName: "attendance";
+            dataType: "number";
+            columnType: "PgSerial";
+            data: number;
+            driverParam: number;
+            notNull: true;
+            hasDefault: true;
+            isPrimaryKey: true;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        employeeId: import("drizzle-orm/pg-core").PgColumn<{
+            name: "employee_id";
+            tableName: "attendance";
+            dataType: "number";
+            columnType: "PgInteger";
+            data: number;
+            driverParam: string | number;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        year: import("drizzle-orm/pg-core").PgColumn<{
+            name: "year";
+            tableName: "attendance";
+            dataType: "number";
+            columnType: "PgInteger";
+            data: number;
+            driverParam: string | number;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        month: import("drizzle-orm/pg-core").PgColumn<{
+            name: "month";
+            tableName: "attendance";
+            dataType: "number";
+            columnType: "PgInteger";
+            data: number;
+            driverParam: string | number;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        day: import("drizzle-orm/pg-core").PgColumn<{
+            name: "day";
+            tableName: "attendance";
+            dataType: "number";
+            columnType: "PgInteger";
+            data: number;
+            driverParam: string | number;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        status: import("drizzle-orm/pg-core").PgColumn<{
+            name: "status";
+            tableName: "attendance";
+            dataType: "string";
+            columnType: "PgText";
+            data: "present" | "absent" | "holiday" | "vacation";
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: ["present", "absent", "holiday", "vacation"];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        createdAt: import("drizzle-orm/pg-core").PgColumn<{
+            name: "created_at";
+            tableName: "attendance";
+            dataType: "date";
+            columnType: "PgTimestamp";
+            data: Date;
+            driverParam: string;
+            notNull: true;
+            hasDefault: true;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+    };
+    dialect: "pg";
+}>;
+export declare const insertAttendanceSchema: z.ZodObject<{
+    employeeId: z.ZodInt;
+    year: z.ZodInt;
+    month: z.ZodInt;
+    day: z.ZodInt;
+    status: z.ZodEnum<{
+        present: "present";
+        absent: "absent";
+        holiday: "holiday";
+        vacation: "vacation";
+    }>;
+}, {
+    out: {};
+    in: {};
+}>;
+export type InsertAttendance = z.infer<typeof insertAttendanceSchema>;
+export type AttendanceRecord = typeof attendanceTable.$inferSelect;
+//# sourceMappingURL=attendance.d.ts.map
